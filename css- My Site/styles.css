@@ -1,0 +1,29 @@
+body {
+  margin-top: 0;
+  margin-left: 0;
+  margin-right: 0;
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 0px;
+  width: 10%;
+  margin: 0 auto 0 auto
+}
+
+
+.top-container {
+    background-color: #CDF0EA;
+}
+
+.middle-container {
+  background-color: red;
+  width: 200px;
+  height: 200px;
+}
+
+.bottom-container {
+  background-color: blue;
+  width: 200px;
+  height: 200px;
+}
