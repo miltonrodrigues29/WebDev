@@ -5,25 +5,86 @@ body {
   text-align: center;
 }
 
+a{
+  color: #211722;
+}
+
 h1 {
+  font-family: 'Questrial', sans-serif;
+  margin-top: 70px;
   margin-bottom: 0px;
-  width: 10%;
-  margin: 0 auto 0 auto
+  margin: 0 auto 0 auto;
+  color: white;
+}
+
+h2 {
+   margin-top: 0;
+   font-family: 'Questrial', sans-serif;
+   color: #BFBFBE;
+   margin-left: 10px;
+}
+p {
+   color: white;
+   margin-bottom: 0;
+   font-family: 'Questrial', sans-serif;
 }
 
 
 .top-container {
-    background-color: #CDF0EA;
+    margin-top: 0;
+    background-color: #171717;
+    margin-bottom: 0;
+    margin-bottom: 0;
 }
 
 .middle-container {
-  background-color: red;
-  width: 200px;
+  margin-top: 0;
+  background-color: #444444;
   height: 200px;
+  margin-bottom: 0;
 }
 
 .bottom-container {
-  background-color: blue;
-  width: 200px;
-  height: 200px;
+  margin-top: 0;
+  background-color: #444444;
+  height: 500px;
+  margin-bottom: 0;
+}
+
+.last-container{
+  background-color: #EDEDED;
+  height: 150px;
+  margin-bottom: 0;
+}
+.languages
+{
+  font-family: 'Questrial', sans-serif;
+  margin-left: 30%;
+}
+
+.btn {
+  background: #000000;
+  background-image: -webkit-linear-gradient(top, #000000, #788b96);
+  background-image: -moz-linear-gradient(top, #000000, #788b96);
+  background-image: -ms-linear-gradient(top, #000000, #788b96);
+  background-image: -o-linear-gradient(top, #000000, #788b96);
+  background-image: linear-gradient(to bottom, #000000, #788b96);
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 18px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: #3cb0fd;
+  background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+  text-decoration: none;
 }
