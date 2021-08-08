@@ -1,0 +1,26 @@
+{
+  "name": "intro-to-node",
+  "version": "1.0.0",
+  "description": "This is introduction to nodejs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/miltonrodrigues29/WebDev.git"
+  },
+  "keywords": [
+    "milton"
+  ],
+  "author": "milton",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/miltonrodrigues29/WebDev/issues"
+  },
+  "homepage": "https://github.com/miltonrodrigues29/WebDev#readme",
+  "dependencies": {
+    "superheroes": "^3.0.0",
+    "supervillains": "^3.0.0"
+  }
+}
