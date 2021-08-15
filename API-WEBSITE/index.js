@@ -34,13 +34,22 @@ app.post("/",function(req,res)
 
       var symbol_set = 'global';
       var symbol     =  req.body.crypto + req.body.fiat;
+
       restClient.getTickerDataPerSymbol(symbol_set, symbol,
+
         function(res) {
-                   console.log(res.ask[0]);
-                   },
-        function(error){
-                 console.log(error);
+
+
+                   var price = JSON.parse(res)
+                   // console.log(price)
+                   console.log(price.ask)
+                   
+
+        //            },
+        // function(error){
+        //          console.log(error);
         }) ;
+
 
 
 
