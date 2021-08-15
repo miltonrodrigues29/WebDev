@@ -9,7 +9,7 @@
   </head>
   <body>
 
-    <form action="/" method="post">
+    <form class="form-group" action="/" method="post">
       <label for="crypto">Choose Crypto</label>
       <select class="form-select" aria-label="Default select example" name="crypto" id="crypto">
         <option value="BTC">Bitcoin</option>
@@ -20,13 +20,15 @@
       <br>
       <br>
       <label for="currency">Choose country currency</label>
-      <select  class="form-select" aria-label="Default select example" name="cars" id="cars">
+      <select  class="form-select" aria-label="Default select example" name="fiat" id="fiat">
         <option value="USD">Dollars</option>
         <option value="RS">Rupees</option>
         <option value="Euros">Euros</option>
         <option value="Pounds">Pounds</option>
       </select>
-      <button type="submit" name="check">Check</button>
+      <br>
+      <br>
+      <button class="btn btn-primary" type="submit" name="check">Check</button>
     </form>
 
   </body>
