@@ -12,10 +12,6 @@ app.get("/", function (req, res) {
 });
 
 
-app.post("/failure",function(req,res)
-{
-  res.redirect("/")
-})
 app.post("/", function (req, res) {
   const firstName = req.body.fname;
   const lastName = req.body.lname;
@@ -63,6 +59,14 @@ app.post("/", function (req, res) {
 
   console.log(firstName, lastName, email);
 });
+
+
+app.post("/failure",function(req,res)
+{
+  res.redirect("/")
+})
+
+
 
 app.listen(3000, function () {
   console.log("Port is running on port 3000");
