@@ -4,7 +4,8 @@ const app = express()
 const ejs = require("ejs");
 
 app.set('view engine', 'ejs');
-app.use(bodyParser.urlencoded({extended: true}))
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(express.static("public"));
 
 var items = [];
 app.get("/",function(req,res)
@@ -12,6 +13,7 @@ app.get("/",function(req,res)
  var day="";
  const today = new Date();
  var current_day =  today.getDay();
+
  // switch(current_day)
  // {
  //   case 0:

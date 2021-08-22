@@ -3,22 +3,37 @@
   <head>
     <meta charset="utf-8">
     <title>To-do List</title>
+    <link rel="stylesheet" href="css/styles.css">
   </head>
   <body>
-    <h3>   It's a  <%= day_of_week %> !! </h3>
+    <div class="box" id="heading">
+      <h1><%= day_of_week %> !! </h1 >
+    </div>
 
-  <ul>
-    <% for (var i=0; i<items.length; i++) { %>
-    <li> <%= items[i] %></li>
-  <% } %>
-  </ul>
+    <div class="box">
 
-  <form class="" action="/" method="post">
 
-    <input type="ITEM" name="newitem" value="">
-    <button type="submit" name="button">ADD ITEM TO THE LIST</button>
+      <% for (var i=0; i<items.length; i++) { %>
 
-  </form>
+        <div class="item">
+          <input type="checkbox">
+          <p><%= items[i] %></p>
+
+        </div>
+
+
+      <% } %>
+
+      <form class="" action="/" method="post">
+        <input type="text" name="newitem" placeholder="New Item" autocomplete="false">
+        <button type="submit" name="button">+</button>
+      </form>
+
+    </div>
+
+
+
+
 
   </body>
 </html>
