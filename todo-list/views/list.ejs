@@ -7,7 +7,7 @@
   </head>
   <body>
     <div class="box" id="heading">
-      <h1><%= day_of_week %> !! </h1 >
+      <h1><%= listTitle %> !! </h1 >
     </div>
 
     <div class="box">
@@ -24,9 +24,10 @@
 
       <% } %>
 
-      <form class="" action="/" method="post">
+      <form class="item" action="/" method="post">
         <input type="text" name="newitem" placeholder="New Item" autocomplete="false">
-        <button type="submit" name="button">+</button>
+        <button type="submit" name="list" value=<%= listTitle %> >+</button>
+
       </form>
 
     </div>

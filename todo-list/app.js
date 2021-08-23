@@ -8,30 +8,12 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
 var items = [];
+var workItems =[];
 app.get("/",function(req,res)
 {
  var day="";
  const today = new Date();
  var current_day =  today.getDay();
-
- // switch(current_day)
- // {
- //   case 0:
- //   day ="Sunday";
- //   break;
- //   case 1: day = "Monday";
- //   break;
- //   case 2: day = "Tuesday";
- //   break;
- //   case 3: day = "Wednesday";
- //   break;
- //   case 4: day = "Thursday";
- //   break;
- //   case 5: day = "Friday";
- //   break;
- //   case 6: day = " Saturday";
- //   break;
- // }
 
  var options ={
   weekday: "long",
@@ -41,16 +23,33 @@ app.get("/",function(req,res)
 
  day = today.toLocaleDateString("en-US",options);
  console.log(day)
- res.render("list",{ day_of_week : day, items: items})
+ res.render("list",{ listTitle: day, items: items})
 })
 
 app.post("/",function(req,res)
 {
+
   var new_item = req.body.newitem;
-  items.push(new_item);
-  res.redirect("/");
+  console.log(req.body.list);
+  if(req.body.list == "Work")
+  {
+    workItems.push(new_item);
+    res.redirect("/work");
+  }
+  else
+  {
+    console.log("Iam in else part");
+    items.push(new_item);
+    res.redirect("/");
+  }
+
 
 } );
+
+app.get("/work",function(req,res)
+{
+  res.render("list",{listTitle :"Work List", items:workItems })
+})
 
 app.listen(3000, function(req,res)
 {
