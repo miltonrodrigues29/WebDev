@@ -50,7 +50,7 @@ app.get("/work",function(req,res)
   res.render("list",{listTitle :"Work List", items:workItems })
 })
 
-app.listen(3000, function(req,res)
+app.listen(process.env.PORT || 3000, function(req,res)
 {
   console.log("Server running at port 3000")
 })
