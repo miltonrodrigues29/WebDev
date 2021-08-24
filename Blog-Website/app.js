@@ -67,7 +67,7 @@ app.get("/posts/:postName", function(req,res)
     {
       title = post.title;
       content1= post.content;
-      console.log("Match Found");
+  
       res.render("post",{title:title,content1:content1});
     }
 
