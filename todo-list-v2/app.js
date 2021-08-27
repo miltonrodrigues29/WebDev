@@ -13,8 +13,7 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(express.static("public"));
 
-const items = ["Buy Food", "Cook Food", "Eat Food"];
-const workItems = [];
+
 
 mongoose.connect("mongodb://localhost:27017/todolistDB", {
   useNewUrlParser: true
@@ -74,15 +73,8 @@ app.get("/", function(req, res) {
 
 app.post("/", function(req, res) {
 
-  const item = req.body.newItem;
+const itemName= req.body.newItem;
 
-  if (req.body.list === "Work") {
-    workItems.push(item);
-    res.redirect("/work");
-  } else {
-    items.push(item);
-    res.redirect("/");
-  }
 });
 
 app.get("/work", function(req, res) {
