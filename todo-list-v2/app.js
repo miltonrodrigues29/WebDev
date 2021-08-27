@@ -75,6 +75,15 @@ app.post("/", function(req, res) {
 
 const itemName= req.body.newItem;
 
+const item = Item(
+  {
+    name: itemName
+  }
+);
+
+item.save();
+res.redirect("/");
+
 });
 
 app.get("/work", function(req, res) {
