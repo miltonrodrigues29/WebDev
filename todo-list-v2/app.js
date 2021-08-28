@@ -57,7 +57,7 @@ app.get("/", function(req, res) {
       });
       res.redirect("/");
     } else {
-      console.log(foundItems);
+      // console.log(foundItems);
       res.render("list", {
         listTitle: "Today",
         newListItems: foundItems
@@ -82,6 +82,21 @@ const item = Item(
 );
 
 item.save();
+res.redirect("/");
+
+});
+
+app.post("/delete",function(req,res)
+{
+ const checkedItemId = req.body.checkbox;
+
+ Item.findByIdAndRemove(checkedItemId,function(err)
+{
+  if(!err)
+  {
+    console.log("Successfully deleted the item!");
+  }
+});
 res.redirect("/");
 
 });
