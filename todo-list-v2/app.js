@@ -25,6 +25,9 @@ const itemsSchema = {
 
 Item = mongoose.model("Item", itemsSchema);
 
+
+
+
 const item1 = new Item({
   name: "Welcome to your todolist"
 });
@@ -39,6 +42,12 @@ const item3 = new Item({
 
 const defaultItems = [item1, item2, item3];
 
+const listSchema = {
+  name: String,
+  items: [itemsSchema]
+}
+
+const List = mongoose.model("List",listSchema);
 
 
 
@@ -101,16 +110,63 @@ res.redirect("/");
 
 });
 
-app.get("/work", function(req, res) {
-  res.render("list", {
-    listTitle: "Work List",
-    newListItems: workItems
-  });
-});
+// app.get("/work", function(req, res) {
+//   res.render("list", {
+//     listTitle: "Work List",
+//     newListItems: workItems
+//   });
+// });
 
 app.get("/about", function(req, res) {
   res.render("about");
 });
+
+app.post("/:customListName",function(req,res)
+{
+  const customListName = req.params.customListName;
+  const itemName= req.body.newItem;
+})
+
+app.get("/:customListName", function(req,res)
+{
+
+  const customListName = req.params.customListName
+
+   List.findOne({name:customListName},function(err,foundList)
+   {
+     if(!err)
+     {
+
+       if(!foundList)
+       {
+         console.log("List Does not exist! Creating the list");
+         const list = new List(
+           {
+             name:customListName,
+             items:defaultItems
+           }
+
+         );
+         list.save();
+         res.redirect("/"+ customListName);
+       }
+       else
+       {
+         console.log("Items already exists");
+         res.render("list",{listTitle:foundList.name, newListItems: foundList.items});
+       }
+
+
+     }
+     else
+     {
+       console.log("Error while searching for the element");
+     }
+   }
+ )
+
+});
+
 
 app.listen(3000, function() {
   console.log("Server started on port 3000");
