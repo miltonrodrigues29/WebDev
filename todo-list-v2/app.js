@@ -16,7 +16,11 @@ app.use(express.static("public"));
 
 
 
-mongoose.connect("mongodb://localhost:27017/todolistDB", {
+// mongoose.connect("mongodb://localhost:27017/todolistDB", {
+//   useNewUrlParser: true
+// });
+
+mongoose.connect("mongodb+srv://admin-milton:Test-123@cluster0.e94j7.mongodb.net/todolistDB", {
   useNewUrlParser: true
 });
 
@@ -201,7 +205,10 @@ app.get("/:customListName", function(req,res)
 
 });
 
-
-app.listen(3000, function() {
-  console.log("Server started on port 3000");
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 3000;
+}
+app.listen(port, function() {
+  console.log("Server started Successfully");
 });
