@@ -24,8 +24,9 @@ const articleSchema =
 
 const Article = mongoose.model("Article",articleSchema);
 
+app.route("/articles")
 
-app.get("/articles",function(req,res)
+.get(function(req,res)
 {
   Article.find({},function(err,foundArticles)
   {
@@ -38,45 +39,40 @@ app.get("/articles",function(req,res)
       res.send(err);
     }
 
-  });
-
-//   const item1 = Article({
-//     title: "Test 1",
-//     content: "Test 1 content"
-//   })
-//
-//   item1.save(function(error)
-// {
-//   if(!error)
-//   {
-//     console.log("Item Saved Successfully");
-//   }
-// })
-
-});
-
-// -------------------------------------------------------------------------------------
-
-// POST METHODS
-
-app.post("/articles",function(req,res)
-{
-  console.log(req.body.title);
-  console.log(req.body.content);
-
-  const newArticle = new Article({
-    title: req.body.title,
-    content: req.body.content
   })
-  newArticle.save(function(error)
-{
-  if(!error)
+
+.post(function(req,res)
   {
-    res.send("Data Stored Successfully!");
-  }
-  else
+    console.log(req.body.title);
+    console.log(req.body.content);
+
+    const newArticle = new Article({
+      title: req.body.title,
+      content: req.body.content
+    })
+    newArticle.save(function(error)
   {
-    res.render("Oops, Error Occured");
-  }
-});
-})
+    if(!error)
+    {
+      res.send("Data Stored Successfully!");
+    }
+    else
+    {
+      res.render("Oops, Error Occured");
+    }
+  });
+  })
+
+.delete(function(req,res)
+  {
+    Article.deleteMany({},function(error)
+  {
+    if(!error)
+    {
+      res.send("Successfully Deleted Everything!");
+    }
+    else{
+      res.send("Error Occured");
+    }
+  })
+  });
